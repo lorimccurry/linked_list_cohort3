@@ -8,13 +8,26 @@ class LinkedListItem
     @payload = item
   end
 
-  def <=> (item)
-    self.payload.to_s <=> item.payload.to_s
-  end
 
   def === (item)
     self.object_id == item.object_id
   end
+
+
+  def <=> (item)
+    if self.payload.class == item.payload.class
+      self.payload <=> item.payload
+    elsif self.payload.class == Symbol && item.payload.class == String
+      1
+    elsif self.payload.class == String && item.payload.class == Fixnum
+      1
+    elsif self.payload.class == String && item.payload.class == Symbol
+      -1
+    elsif self.payload.class == Fixnum && item.payload.class == String
+      -1
+    end
+  end
+
 
   def next_list_item=(item)
     if item == self
@@ -23,6 +36,7 @@ class LinkedListItem
       @next_list_item = item
     end
   end
+
 
   def last?
     if self.next_list_item == nil
