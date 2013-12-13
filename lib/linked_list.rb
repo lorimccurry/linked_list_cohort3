@@ -1,7 +1,7 @@
 class LinkedList
   attr_accessor :new_item
 
-  def intialize
+  def initialize(*payload)
     #@count = 0 possibly might need this later
   end
 
@@ -20,7 +20,9 @@ class LinkedList
 
 
   def get(index)
-    if @new_item == nil
+    if index < 0
+      raise IndexError
+    elsif @new_item == nil
       raise IndexError
     else
       current_item = @new_item
