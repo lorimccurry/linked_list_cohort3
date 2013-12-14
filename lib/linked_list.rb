@@ -9,6 +9,7 @@ class LinkedList
   def add_item(payload)
     if @new_item.nil?
       @new_item = LinkedListItem.new(payload)
+      @count += 1
     else
       current_item = @new_item
       while !current_item.last?
