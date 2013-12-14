@@ -2,7 +2,7 @@ class LinkedList
   attr_accessor :new_item
 
   def initialize(*payload)
-    #@count = 0 possibly might nede this later
+    @count = 0
   end
 
 
@@ -15,6 +15,7 @@ class LinkedList
         current_item = current_item.next_list_item
       end
       current_item.next_list_item = LinkedListItem.new(payload)
+      @count += 1
     end
   end
 
@@ -31,6 +32,10 @@ class LinkedList
       end
       current_item.payload
     end
+  end
+
+  def size
+    @count
   end
 
 end

@@ -34,9 +34,7 @@ class LinkedListItem
     when [String, Symbol], [Fixnum, String] then -1
     when [Symbol, Symbol], [String, String], [Fixnum, Fixnum]
       self.payload <=> item.payload
-
     end
-
   end
 
 
