@@ -4,13 +4,14 @@ class LinkedList
   def initialize(*payload)
     @count = 0
     @last = nil
+    # @s = payload
   end
 
   def to_s
-    if @new_item == nil
+    if @s == nil
       "| |"
     else
-      "| #{@new_item.payload} |"
+      "| #{@s} |"
     end
   end
 
@@ -20,6 +21,7 @@ class LinkedList
       @new_item = LinkedListItem.new(payload)
       @count += 1
       @last = @new_item
+      @s = @new_item.payload
     else
       current_item = @new_item
       while !current_item.last?
@@ -28,6 +30,7 @@ class LinkedList
       current_item.next_list_item = LinkedListItem.new(payload)
       @count += 1
       @last = current_item.next_list_item
+      @s += ', ' + current_item.next_list_item.payload
     end
   end
 
