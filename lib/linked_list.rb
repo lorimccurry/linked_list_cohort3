@@ -3,6 +3,7 @@ class LinkedList
 
   def initialize(*payload)
     @count = 0
+    @last = nil
   end
 
 
@@ -10,6 +11,7 @@ class LinkedList
     if @new_item.nil?
       @new_item = LinkedListItem.new(payload)
       @count += 1
+      @last = @new_item
     else
       current_item = @new_item
       while !current_item.last?
@@ -17,6 +19,7 @@ class LinkedList
       end
       current_item.next_list_item = LinkedListItem.new(payload)
       @count += 1
+      @last = current_item
     end
   end
 
@@ -37,6 +40,14 @@ class LinkedList
 
   def size
     @count
+  end
+
+  def last
+    if @new_item.nil?
+      nil
+    else
+      @last.payload
+    end
   end
 
 end
