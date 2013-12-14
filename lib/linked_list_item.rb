@@ -28,6 +28,17 @@ class LinkedListItem
     end
   end
 
+  def <=>(item)
+    case [self.payload.class, item.payload.class]
+    when [Symbol, String], [String, Fixnum] then 1
+    when [String, Symbol], [Fixnum, String] then -1
+    when [Symbol, Symbol], [String, String], [Fixnum, Fixnum]
+      self.payload <=> item.payload
+
+    end
+
+  end
+
 
   def next_list_item=(item)
     if item == self

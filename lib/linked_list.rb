@@ -2,7 +2,7 @@ class LinkedList
   attr_accessor :new_item
 
   def initialize(*payload)
-    #@count = 0 possibly might need this later
+    #@count = 0 possibly might nede this later
   end
 
 
@@ -27,7 +27,7 @@ class LinkedList
     else
       current_item = @new_item
       index.times do
-        current_item = current_item.next_list_item
+        current_item == nil ? (raise IndexError) : current_item = current_item.next_list_item
       end
       current_item.payload
     end
