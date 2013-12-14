@@ -6,6 +6,14 @@ class LinkedList
     @last = nil
   end
 
+  def to_s
+    if @new_item == nil
+      "| |"
+    else
+      "| #{@new_item.payload} |"
+    end
+  end
+
 
   def add_item(payload)
     if @new_item.nil?
