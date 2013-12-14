@@ -19,7 +19,7 @@ class LinkedList
       end
       current_item.next_list_item = LinkedListItem.new(payload)
       @count += 1
-      @last = current_item
+      @last = current_item.next_list_item
     end
   end
 
