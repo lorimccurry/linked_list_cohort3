@@ -54,11 +54,7 @@ class LinkedList
   end
 
   def last
-    if @new_item.nil?
-      nil
-    else
-      @last.payload
-    end
+    @new_item.nil? ? nil : @last.payload
   end
 
 end
