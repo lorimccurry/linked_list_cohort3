@@ -9,18 +9,9 @@ class LinkedList
     end
   end
 
-  def to_s
-    if @last == nil
-      "| |"
-    else
-      current_item = @head_node
-      first_payload = @head_node.payload
-      while !current_item.last?
-        current_item = current_item.next_list_item
-        first_payload << ", " + current_item.payload
-      end
-      "| #{first_payload} |"
-    end
+
+  def [](index)
+    get(index)
   end
 
 
@@ -54,6 +45,22 @@ class LinkedList
       current_item.payload
     end
   end
+
+
+  def to_s
+      if @last == nil
+        "| |"
+      else
+        current_item = @head_node
+        first_payload = @head_node.payload
+        while !current_item.last?
+          current_item = current_item.next_list_item
+          first_payload << ", " + current_item.payload
+        end
+        "| #{first_payload} |"
+      end
+    end
+
 
   def size
     @count
