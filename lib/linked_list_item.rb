@@ -39,11 +39,7 @@ class LinkedListItem
 
 
   def next_list_item=(item)
-    if item == self
-      raise ArgumentError
-    else
-      @next_list_item = item
-    end
+    item == self ? (raise ArgumentError) : @next_list_item = item
   end
 
 
