@@ -38,12 +38,12 @@ class LinkedList
   def get(index)
     if index < 0
       raise IndexError
-    elsif @head_node == nil
+    elsif @head_node.nil?
       raise IndexError
     else
       current_item = @head_node
       index.times do
-        current_item == nil ? (raise IndexError) : current_item = current_item.next_list_item
+        current_item.nil? ? (raise IndexError) : current_item = current_item.next_list_item
       end
       current_item.payload
     end
