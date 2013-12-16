@@ -1,5 +1,5 @@
 class LinkedList
-  attr_accessor :new_item
+  attr_accessor :head_node
 
   def initialize(*payload)
     @count = 0
@@ -17,13 +17,13 @@ class LinkedList
 
 
   def add_item(payload)
-    if @new_item.nil?
-      @new_item = LinkedListItem.new(payload)
+    if @head_node.nil?
+      @head_node = LinkedListItem.new(payload)
       @count += 1
-      @last = @new_item
-      @s = @new_item.payload
+      @last = @head_node
+      @s = @head_node.payload
     else
-      current_item = @new_item
+      current_item = @head_node
       while !current_item.last?
         current_item = current_item.next_list_item
       end
@@ -38,10 +38,10 @@ class LinkedList
   def get(index)
     if index < 0
       raise IndexError
-    elsif @new_item == nil
+    elsif @head_node == nil
       raise IndexError
     else
-      current_item = @new_item
+      current_item = @head_node
       index.times do
         current_item == nil ? (raise IndexError) : current_item = current_item.next_list_item
       end
@@ -54,7 +54,7 @@ class LinkedList
   end
 
   def last
-    @new_item.nil? ? nil : @last.payload
+    @head_node.nil? ? nil : @last.payload
   end
 
 end
