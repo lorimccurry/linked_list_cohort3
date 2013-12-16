@@ -13,21 +13,6 @@ class LinkedListItem
     self.object_id == item.object_id
   end
 
-
-  def <=> (item)
-    if self.payload.class == item.payload.class
-      self.payload <=> item.payload
-    elsif self.payload.class == Symbol && item.payload.class == String
-      1
-    elsif self.payload.class == String && item.payload.class == Fixnum
-      1
-    elsif self.payload.class == String && item.payload.class == Symbol
-      -1
-    elsif self.payload.class == Fixnum && item.payload.class == String
-      -1
-    end
-  end
-
   def <=>(item)
     case [self.payload.class, item.payload.class]
     when [Symbol, String], [String, Fixnum] then 1
