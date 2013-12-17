@@ -71,6 +71,11 @@ class LinkedList
     end
 
 
+  def remove (index)
+    @count -= 1
+  end
+
+
   def size
     @count
   end
