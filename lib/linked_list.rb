@@ -15,6 +15,15 @@ class LinkedList
   end
 
 
+  def []=(index, changed_payload)
+    current_item = @head_node
+    index.times do
+      current_item = current_item.next_list_item
+    end
+    current_item.payload = changed_payload
+  end
+
+
   def add_item(payload)
     if @head_node.nil?
       @head_node = LinkedListItem.new(payload)
@@ -65,6 +74,7 @@ class LinkedList
   def size
     @count
   end
+
 
   def last
     @head_node.nil? ? nil : @last.payload
